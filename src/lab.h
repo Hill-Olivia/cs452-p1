@@ -6,9 +6,11 @@
 #include <termios.h>
 #include <unistd.h>
 
+#define MAX_VERSION_STRING 10
 #define lab_VERSION_MAJOR 1
 #define lab_VERSION_MINOR 0
 #define UNUSED(x) (void)x;
+//#define UNUSED(x) (void)(x)
 
 #ifdef __cplusplus
 extern "C"
@@ -48,6 +50,15 @@ extern "C"
    */
   int change_dir(char **dir);
 
+  // /**
+  //  * @brief Returns a string containing the version of the library.
+  //  * This string has been allocated using malloc and must be freed
+  //  * by the caller.
+  //  * @return char* The version string
+  //  * ADDED BACK FROM P1
+  //  */
+  //  char *getVersion(void);
+
   /**
    * @brief Convert line read from the user into to format that will work with
    * execvp. We limit the number of arguments to ARG_MAX loaded from sysconf.
@@ -59,6 +70,19 @@ extern "C"
    * @return The line read in a format suitable for exec
    */
   char **cmd_parse(char const *line);
+
+  // /**
+  //  * @brief This function causes a segfault to demo Address Sanitizer 
+  //  * ADDED BACK FROM P1
+  //  */
+  // int segfault(void);
+
+  // /**
+  //  * @brief This function causes an array out of bounds error to
+  //  * demo Address Sanitizer
+  //  * ADDED BACK FROM P1
+  //  */
+  // void outOfBounds(void);
 
   /**
    * @brief Free the line that was constructed with parse_cmd

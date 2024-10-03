@@ -11,6 +11,29 @@ void tearDown(void) {
   // clean stuff up here
 }
 
+void test_stuff(void){
+  // test stuff here
+}
+
+// // ADDED BACK FROM P1 
+// void test_leak(void) 
+// {
+//   char *version = getVersion();
+//   TEST_ASSERT_EQUAL_STRING("1.0", version);
+// }
+
+// // ADDED FROM P1 
+// void test_segfault(void) 
+// {
+//   segfault();
+// }
+
+// // ADDED FROM P1
+// void test_bounds(void)
+// {
+//   outOfBounds();
+// } 
+
 
 void test_cmd_parse2(void)
 {
@@ -161,6 +184,10 @@ void test_ch_dir_root(void)
 
 int main(void) {
   UNITY_BEGIN();
+  // RUN_TEST(test_leak); //ADDED BACK P1
+  // RUN_TEST(test_segfault); //ADDED BACK P1
+  // RUN_TEST(test_bounds); //ADDED BACK P1
+  // Add test stuff?
   RUN_TEST(test_cmd_parse);
   RUN_TEST(test_cmd_parse2);
   RUN_TEST(test_trim_white_no_whitespace);
