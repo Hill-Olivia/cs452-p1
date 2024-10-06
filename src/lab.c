@@ -4,12 +4,14 @@
 #include <readline/readline.h>
 #include "lab.h"
 
-// char *getVersion(void)
-// {
-//   char *version = (char *)malloc(MAX_VERSION_STRING);
-//   snprintf(version, MAX_VERSION_STRING, "%d.%d", lab_VERSION_MAJOR, lab_VERSION_MINOR);
-//   return version;
-// }
+char *version = "1.0";
+
+char *getVersion(void)
+{
+  char *version = (char *)malloc(MAX_VERSION_STRING);
+  snprintf(version, MAX_VERSION_STRING, "%d.%d", lab_VERSION_MAJOR, lab_VERSION_MINOR);
+  return version;
+}
 
 // int segfault(void)
 // {
