@@ -17,9 +17,11 @@ char* getPrompt()
   {
     return prompt;
   }
-    free(prompt);
-    return "shelly $ ";
+  free(prompt);
+  return "shelly $ ";
 }
+
+
 
 int main(int argc, char *argv[]) // argc num of args + progname
 {
@@ -54,22 +56,52 @@ int main(int argc, char *argv[]) // argc num of args + progname
   {
     char *input;
     char *prompt = getPrompt();
+    char *command;
 
     while ((input=readline(prompt)))
     {
       //input = readline(shell_prompt);
       if (!input) break;
       add_history(input);
-      printf("%s\n", input);
-      // session = false;
-      if (strcmp(input, "exit") == 0) 
+      // printf("%s\n", input);
+      // Get first token
+      command = strtok(input, " "); // First chuck parsed
+
+      if (strcmp(command, "exit") == 0) 
       {
-        free(input);
+        free(command);
         break;
       }
-      free(input);
+      if (strcmp(command,"cd") == 0)
+      {
+        char *arg = strtok(input, " ");
+        if(arg != NULL)
+        {
+          // Look for specified directory
+        }
+        // Go to home directory
+
+      }
+      if (strcmp(command,"history") == 0)
+      {
+        // print command history
+      }
+      /* 
+      if (strcmp(,) == 0)
+      {
+
+      }
+      if (strcmp(,) == 0)
+      {
+
+      }
+      */
+      
     }
+    free(input);
+    free(command);
   }
+
   // free(session);
   // Loop through user commands while program active
 
